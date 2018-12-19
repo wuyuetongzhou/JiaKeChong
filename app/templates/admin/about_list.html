@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>甲壳虫智能官网后台管理</title>
+    <link rel="stylesheet" type="text/css" href="../../static/admin/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../static/admin/css/main.css">
+    <link rel="stylesheet" href="../../static/admin/css/jquery.pagination.css">
+    <script type="text/javascript" src="../../static/admin/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="../../static/admin/js/jquery.pagination.min.js"></script>
+</head>
+<body>
+<div class="breadcrub">
+    当前位置：企业文化>管理介绍
+    <form class="news_filter_form">
+        <input type="button" value="新增介绍" class="input_sub" id="addBtn" style="margin-right: 10px" onclick="">
+    </form>
+</div>
+
+<div class="pannel">
+    <table class="common_table">
+        <tr>
+            <th width="5%">id</th>
+            <th width="15%">标题</th>
+            <th width="40%">内容</th>
+            <th width="20%">图片地址</th>
+            <th width="10%">发布时间</th>
+            <th width="10%">管理操作</th>
+        </tr>
+
+        {% for about in data.about_list %}
+            <tr>
+                <td>{{ about.id }}</td>
+                <td class="tleft">{{ about.name }}</td>
+                <td>{{ about.content }}</td>
+                <td><img style="width: 100px; height: auto; margin-top: 0px" src="{{ about.image_url }}"></td>
+                <td>{{ about.create_time }}</td>
+                <td>
+                    <a href="{{ url_for('admin.about_modify') }}?about_id={{ about.id }}" class="edit">修改</a>
+                    <a id="del_btn" href="" class="edit" onclick="del_func({{ about.id }})">删除</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="box">
+    <div id="pagination" class="page"></div>
+</div>
+<script>
+    function getCookie(name) {
+        var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+        return r ? r[1] : undefined;
+    }
+
+    function del_func(about_id) {
+        if (confirm("确定删除吗？")) {
+            $.ajax({
+                url: "/admin/about_delete/"+about_id,
+                type: "POST",
+                 headers: {
+                    "X-CSRFToken": getCookie('csrf_token')
+                },
+                success: function (resp) {
+                    if (resp.errno == "0") {
+                        // 返回上一页，刷新数据
+                        alert('已删除');
+                    } else {
+                        alert(resp.errmsg);
+                    }
+                },
+            });
+        }
+    }
+</script>
+</body>
+</html>

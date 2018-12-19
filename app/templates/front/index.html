@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>甲壳虫智能</title>
+    <link rel="icon" href="../../static/front/images/favicon.bmp" type="image/x-icon">
+    <meta name="description" content="网站描述"/>
+    <meta name="keywords" content="关键词"/>
+    <meta name="author" content="order by"/>
+    <meta http-equiv="MSThemeCompatible" content="Yes"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <link rel="stylesheet" type="text/css" href="../../static/front/css/style_2_common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../static/front/css/style_2_portal_index.css"/>
+    <script src="../../static/front/js/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="../../static/front/js/common.js" type="text/javascript"></script>
+    <script src="../../static/front/js/pace.js" type="text/javascript"></script>
+    <link href="../../static/front/css/style.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body id="nv_portal" class="pg_index">
+<div id="append_parent"></div>
+<div id="ajaxwaitid"></div>
+<div id="toptb" class="cl" style="display:none;"></div>
+<div id="hd" style="background:#FFF; height:60px; border-bottom:1px solid #E6E6E6; ">
+    <div class="clear"></div>
+    <div id="week_nav">
+        <div class="wk_navwp">
+            <div class="wk_lonav">
+                <div class="wk_logo">
+                    <h2><a href="index.html" title=""><img src="../../static/front/images/logo1.png" alt="" border="0"/></a>
+                    </h2>
+                </div>
+                <div class="wk_inav">
+                    <ul class="nav">
+                        <li style="margin-left: 0;"><a href="{{ url_for('.index') }}" style="color: #3787c9;">首页</a></li>
+                        <li><a href="{{ url_for('.product') }}">产品中心</a></li>
+                        <li><a href="{{ url_for('.news') }}">新闻资讯</a></li>
+                        <li><a href="{{ url_for('.case') }}">应用案例</a></li>
+                        <li><a href="{{ url_for('.contact') }}">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="mu" class="cl">
+    <div class="wp"></div>
+</div>
+<script src="../../static/front/js/week_nav.js" type="text/javascript"></script>
+<div id="wp" class="wp">
+    <script src="../../static/front/js/jquery-1.7.2.js" type="text/javascript"></script>
+    <script src="../../static/front/js/jquery.fullpage.min.js" type="text/javascript"></script>
+    <script src="../../static/front/js/scoll.js" type="text/javascript"></script>
+    <script src="../../static/front/js/addons.js" type="text/javascript"></script>
+    <script src="../../static/front/js/case.js" type="text/javascript"></script>
+    <script src="../../static/front/js/tab.lib.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        PTM(document).ready(function () {
+
+            PTM(".wk_about").tab({
+
+                tabId: "#wk_about_menu",
+                tabTag: "a",
+                conId: "#wk_about_div",
+                conTag: "div.wk_aaa",
+                act: "mouseover",
+                effact: "scrollx",
+                dft: 0
+
+            });
+
+        });
+    </script>
+</div>
+<div class="clear"></div>
+<div class="wk_index_main">
+
+    <!--page1-->
+
+    <div class="section page1">
+        <div class="wk_slide-wrap">
+            <ul>
+                <li id="wk_s1" class="wk_selected">
+                    <div class="wk_banner"></div>
+                    <div class="wk_wrap">
+                        <div class="wk_banner13"><img src="../../static/front/images/banner13.png" alt=""/></div>
+                        <div class="wk_banner12"><img src="../../static/front/images/banner12.png" alt=""/></div>
+                        <div class="wk_banner14"><img src="../../static/front/images/banner14.png" alt=""/></div>
+
+                    </div>
+                </li>
+                <li id="wk_s2">
+                    <div class="wk_banner"></div>
+                    <div class="wk_wrap">
+                        <div class="wk_banner22"><img src="../../static/front/images/banner22.png" alt=""/></div>
+                        <div class="wk_banner23"><img src="../../static/front/images/banner23.png" alt=""/></div>
+                        <!-- <div class="wk_banner24"><a href="#" target="_blank">了解更多</a></div> -->
+                    </div>
+                </li>
+                <li id="wk_s3">
+                    <div class="wk_banner"></div>
+                    <div class="wk_wrap">
+                        <div class="wk_banner32"><img src="../../static/front/images/banner32.png" alt=""/></div>
+                        <div class="wk_banner33"><img src="../../static/front/images/banner33.png" alt=""/></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="wk_arrow"><a href="#about"><img src="../../static/front/images/ico3.png"/></a></div>
+        <div class="wk_slide-nav-wrap">
+            <div id="wk_slide-nav">
+                <ul>
+                    <li class="wk_nav-line"></li>
+                    <li class="wk_nav-bullet-container active" data-index="0"><a class="nav-link"
+                                                                                 href="javascript:void(0)">
+                        <div class="nav-bullet"></div>
+                        <div class="nav-text">智慧城市综合运营商</div>
+                    </a></li>
+                    <li class="wk_nav-line"></li>
+                    <li class="wk_nav-bullet-container" data-index="1"><a class="nav-link" href="javascript:void(0)">
+                        <div class="nav-bullet"></div>
+                        <div class="nav-text">信息化集成平台</div>
+                    </a></li>
+                    <li class="wk_nav-line"></li>
+                    <li class="wk_nav-bullet-container" data-index="2"><a class="nav-link" href="javascript:void(0)">
+                        <div class="nav-bullet"></div>
+                        <div class="nav-text">智慧政务</div>
+                    </a></li>
+                    <li class="wk_nav-line"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--page4-->
+
+    <div class="section page4">
+        <div class="wk_about">
+            <h2><img src="../../static/front/images/about_title_1.png" alt=""/></h2>
+            <!-- <h2 class="wk_h2"><img src="../../static/front/images/about_title1.png" alt="" /></h2> -->
+            <div class="wk_about_menu" id="wk_about_menu"><a class="active">公司简介</a><a>公司文化</a></div>
+            <div class="wk_about_div" id="wk_about_div">
+
+                <!-- 公司简介 -->
+                <div class="wk_about_main wk_aaa">
+                    <div class="wk_about_left"><img src="../../static/front/images/gongsi.jpg"
+                                                    style="width: 460px; height: 360px; border-radius:10px;"
+                                                    alt=""/></div>
+                    <div class="wk_about_right">
+                        <div class="wk_about_top"><a><img src="../../static/front/images/about_ico1.png" alt=""/></a>
+                            <a><img src="../../static/front/images/about_ico2.png"
+                                    alt=""/></a> <a><img src="../../static/front/images/about_ico3.png" alt=""/></a> <a
+                                    style="margin-right:0;"><img src="../../static/front/images/about_ico4.png"
+                                                                 alt=""/></a>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="wk_about_des">
+                            &emsp;&emsp;广西甲壳虫智能科技有限公司是以智能集成技术为核心的智慧城市综合服务运营商、解决方案提供商，致力于为全球行业用户提供领先的人工智能算法和解决方案，构建物联、数据联、人联、服务联的互联网智慧平台。基于自有智能硬件+软件+数据预处理服务平台，不断开拓、创新稳步扩大经营范围，目前甲壳虫智能已为各行业领先企业提供智慧医疗、智慧安防、智慧金融、智慧政务、智慧企业、智慧景区、智慧社区等整体智能解决方案。同时甲壳虫智能坚持技术创新，计划设立院士专家工作站、博士后科研工作站、企业技术中心等，依托中国·东盟开拓东南亚市场，助力中国智慧与服务走向全世界。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 公司定位 -->
+                <!-- <div class="wk_news_list wk_aaa">
+                </div>-->
+
+                <!-- 公司文化 -->
+                <div class="wk_about_cultrue">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--page2-->
+
+    <div class="section page2">
+        <div class="wk_smart_city">
+            <h2><img src="../../static/front/images/smart_city_title.png" alt=""/></h2>
+            <ul class="blocks">
+                <li>
+                    <div><img src="../../static/front/images/sc_g.jpg"></div>
+                    <div class="sc_title_1">智慧政务</div>
+                    <div class="popup">
+								<span>
+									<div class="sc_title_2">智慧政务</div>
+									<div class="sc_des">
+										&emsp;&emsp;通过运用物联网、云计算、移动互联网、人工智能、数据挖掘等现代信息技术，建设智慧政务云平台，为政府机关提供整体智能解决方案，提高政府办公、服务、监管、决策的智能化水平。
+									</div>
+								</span>
+                    </div>
+                </li>
+                <li>
+                    <div><img src="../../static/front/images/sc_c.jpg"></div>
+                    <div class="sc_title_1">城市基础设施服务</div>
+                    <div class="popup">
+								<span>
+									<div class="sc_title_2">城市基础设施服务</div>
+									<div class="sc_des">
+										&emsp;&emsp;公司致力于帮助城市更加高效地管理公共交通资源服务，并优化资源利用率，从而打造多种解决方案，实现城市基础设施服务更高效便捷、安全智能、环保节约。
+									</div>
+								</span>
+                    </div>
+                </li>
+
+                <li>
+                    <div class="box2Img"><img src="../../static/front/images/sc_l.jpg" class="img-responsive"></div>
+                    <div class="sc_title_1">智慧生活</div>
+                    <div class="popup">
+								<span>
+									<div class="sc_title_2" style="margin-top:80px">智慧生活</div>
+									<div class="sc_des">
+										&emsp;&emsp;为智慧医疗、平安校园、智慧社区等智慧生活组成部分提供安防部控、、流程质控、信息管理平台等一站式整体智能解决方案服务。通过人脸识别、人工智能、云计算、物联网等新型技术，将城市构建为一个“科技+人文”的生态系统，实现医院、校园、小区等生活场景智能化、安全化。
+									</div>
+								</span>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+
+    <!--page3-->
+
+    <div class="section page3">
+        <div class="case">
+            <h2><img src="../../static/front/images/case_title.png" alt=""/></h2>
+            <h2 class="wk_h2"><img src="../../static/front/images/case_title1.png" alt=""/></h2>
+            <div class="wk_btndiv"><a class="abtn aleft" href="javascript:void(0);"></a> <a class="abtn aright"
+                                                                                            href="javascript:void(0);"></a>
+            </div>
+            <div class="wk_scrollcontainer">
+                <ul>
+                    <li>
+                        {% for product in data.product_list %}
+                        <div class="wk_case_list"><a href="{{ url_for('.product_detail') }}?product_id={{ product.id }}" title="{{ product.name }}">
+                            <div class="wk_case_img"><img src="{{ product.image_url }}" width="275" height="190" alt="{{ product.name }}"/></div>
+                            <div class="wk_case_ico"></div>
+                            <div class="wk_case_xian"><span class="wk_span_1"></span> <span class="wk_span_2"></span>
+                                <span class="wk_span_3"></span>
+                                <span class="wk_span_4"></span></div>
+                        </a></div>
+                        {% endfor %}
+
+
+                    </li>
+
+                </ul>
+
+                <!--首页-案例-内部调用代码设置位置-->
+
+            </div>
+        </div>
+        <script type="text/javascript">
+            PTM(function () {
+
+                PTM(".case").Xslider({
+
+                    unitdisplayed: 1,
+
+                    numtoMove: 1,
+
+                    speed: 500,
+
+                    scrollobjSize: Math.ceil(PTM(".uldiv").find("li").length * 1)
+
+                })
+
+            })
+        </script>
+    </div>
+
+
+    <!--page5-->
+
+    <div class="section page5">
+        <div class="wk_service">
+            <h2><img src="../../static/front/images/cooperator_title.png" alt=""/></h2>
+            <h2 class="wk_h2"><img src="../../static/front/images/service_title1.png" alt=""/></h2>
+            <div class="wk_service_xian"></div>
+            <div class="wk_service_main">
+                <ul>
+                    <li><img src="../../static/front/images/partner_face.png" alt=""/> <span class="wk_span_1"></span>
+                        <span class="wk_span_2"></span>
+                        <span class="wk_span_3"></span> <span class="wk_span_4"></span></li>
+                    <li><img src="../../static/front/images/partner_fushikang.png" alt=""/> <span
+                            class="wk_span_1"></span> <span class="wk_span_2"></span>
+                        <span class="wk_span_3"></span> <span class="wk_span_4"></span></li>
+                    <li><img src="../../static/front/images/partner_huawei.png" alt=""/> <span class="wk_span_1"></span>
+                        <span class="wk_span_2"></span>
+                        <span class="wk_span_3"></span> <span class="wk_span_4"></span></li>
+                    <li><img src="../../static/front/images/partner_jzyl.png" alt=""/> <span class="wk_span_1"></span>
+                        <span class="wk_span_2"></span>
+                        <span class="wk_span_3"></span> <span class="wk_span_4"></span></li>
+                    <li><img src="../../static/front/images/partner_liantong.png" alt=""/> <span
+                            class="wk_span_1"></span> <span class="wk_span_2"></span>
+                        <span class="wk_span_3"></span> <span class="wk_span_4"></span></li>
+                    <li><img src="../../static/front/images/partner_wanda.png" alt=""/> <span class="wk_span_1"></span>
+                        <span class="wk_span_2"></span>
+                        <span class="wk_span_3"></span> <span class="wk_span_4"></span></li>
+                    <li><img src="../../static/front/images/partner_zxyh.png" alt=""/> <span class="wk_span_1"></span>
+                        <span class="wk_span_2"></span>
+                        <span class="wk_span_3"></span> <span class="wk_span_4"></span></li>
+
+                </ul>
+
+                <!--首页-合作客户-内部调用代码设置位置-->
+
+            </div>
+        </div>
+    </div>
+
+    <!--page6-->
+
+    <div class="section page6">
+        <div class="wk_contact">
+            <div class="wk_contact_left"><img src="../../static/front/images/contact_img2.png" alt=""/></div>
+            <div class="wk_contact_left1"><img src="../../static/front/images/contact_img1.png" alt=""/></div>
+            <div class="wk_contact_right">
+                <h2><img src="../../static/front/images/contact_title.png" alt=""/></h2>
+                <ul class="wk_cont_div">
+                    <li><span class="wk_cont_b"></span>业务电话：0771-2828662</li>
+                    <li class="wk_serve-ico-kf">业务咨询：<span class="wk_cont_a"><img
+                            src="../../static/front/images/cont_a.png"/></span><a
+                            href="http://wpa.qq.com/msgrd?v=3&uin=2701723020&site=qq&menu=yes"
+                            target="_blank">2701723020 【点击咨询】</a></li>
+                    <li><span class="wk_cont_c"></span>postmaster@b-tles.com</li>
+                    <li><span class="wk_cont_d"></span>南宁高新区创新路23号2#楼B座</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--index_footer-->
+
+    <div class="section fp-auto-height">
+        <div class="wk_footer_side">
+            <div class="wk_footer">© 2018 广西甲壳虫智能科技有限公司 备案号：
+                <a href="http://www.miitbeian.gov.cn/" target="_blank" title="桂ICP备18008424号">桂ICP备18008424号 </a> <br/>
+
+            </div>
+        </div>
+
+    </div>
+    <script src="../../static/front/js/banner.js" type="text/javascript"></script>
+    <div class="clear"></div>
+    <div class="wp">
+        <!--[diy=diy1]-->
+
+        <div id="diy1" class="area"></div>
+
+        <!--[/diy]-->
+    </div>
+    <div class="clear"></div>
+    <div id="wp" class="wp"></div>
+    <div id="wk_ft" style="display:none; ">
+        <div id="ft" class="wp cl" style="border:0;"></div>
+    </div>
+    <ul id="scbar_type_menu" class="p_pop" style="display: none;">
+    </ul>
+
+    <link href="../../static/front/css/service.css" rel="stylesheet" type="text/css"/>
+    <div class="main-im">
+        <div id="open_im" class="open-im"></div>
+        <div class="im_main" id="im_main">
+            <div id="close_im" class="close-im"><a href="javascript:void(0);" title="点击关闭"> </a></div>
+            <a href="http://wpa.qq.com/msgrd?v=3&uin=2701723020&site=qq&menu=yes" target="_blank" class="im-qq qq-a"
+               title="在线QQ客服">
+                <div class="qq-container"></div>
+                <div class="qq-hover-c"><img class="img-qq" src="../../static/front/images/qq.png"></div>
+                <span>QQ在线咨询</span>
+            </a>
+            <div class="im-tel">
+                <dt>咨询热线</dt>
+                <dt class="tel-num">0771-2828662</dt>
+                <dt>公司邮箱</dt>
+                <dt class="tel-num">postmaster@b-tles.com</dt>
+            </div>
+            <div class="im-footer" style="position:relative">
+                <div class="weixing-container">
+                    <div class="weixing-show">
+                        <div class="weixing-txt">微信扫一扫<br>
+                            关注我们<br>
+                            获取更多精彩风格
+                        </div>
+                        <img class="weixing-ma" src="../../static/front/images/weixin.jpg">
+                        <div class="weixing-sanjiao"></div>
+                        <div class="weixing-sanjiao-big"></div>
+                    </div>
+                </div>
+                <div class="go-top"><a href="#" title="返回顶部"></a></div>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        PTM(document).ready(function () {
+
+            PTM('#close_im').bind('click', function () {
+
+                PTM('#main-im').css("height", "0");
+
+                PTM('#im_main').hide();
+
+                PTM('#open_im').show();
+
+            });
+
+            PTM('#open_im').bind('click', function (e) {
+
+                PTM('#main-im').css("height", "272");
+
+                PTM('#im_main').show();
+
+                PTM(this).hide();
+
+            });
+
+
+            PTM(".weixing-container").bind('mouseenter', function () {
+
+                PTM('.weixing-show').show();
+
+            })
+
+            PTM(".weixing-container").bind('mouseleave', function () {
+
+                PTM('.weixing-show').hide();
+
+            });
+
+        });
+    </script>
+    <script src="../../static/front/js/home.js" type="text/javascript"></script>
+    <div id="scrolltop"><span hidefocus="true"><a title="返回顶部" onclick="window.scrollTo('0','0')" class="scrolltopa"><b>返回顶部</b></a></span>
+    </div>
+    <script type="text/javascript">
+        _attachEvent(window, 'scroll', function () {
+            showTopLink();
+        });
+        checkBlind();
+    </script>
+    <div id="discuz_tips" style="display:none;"></div>
+    <script src="../../static/front/js/discuz_tips.js" type="text/javascript" charset="UTF-8"></script>
+</body>
+</html>

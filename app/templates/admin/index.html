@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>甲壳虫智能官网后台管理</title>
+    <link rel="shortcut icon" href="../../static/admin/images/favicon.bmp" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="../../static/admin/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../static/admin/css/main.css">
+    <script type="text/javascript" src="../../static/admin/js/jquery-1.12.4.min.js"></script>
+</head>
+<body>
+<div class="header">
+    <a href="#" class="logo fl"><img src="../../static/admin/images/logo.png" alt="logo"></a>
+    <a href="{{ url_for('admin.admin_logout') }}" class="logout fr">退 出</a>
+</div>
+
+<div class="side_bar">
+    <div class="user_info">
+        <img src="../../static/admin/images/person.png" alt="{{ user.username }}">
+        <p>欢迎你 <em>{{ user.username }}</em></p>
+    </div>
+
+    <div class="menu_con">
+        <div class="first_menu active"><a href="#" class="icon01">数据统计</a></div>
+        <ul class="sub_menu show">
+            <li><a class="icon022" href="{{ url_for('admin.user_count') }}" target="main_frame">数据统计</a></li>
+            {#            <li class="current"><a href="{{ url_for('admin.user_list') }}" class="icon021" target="main_frame">用户列表</a>#}
+            {#            </li>#}
+        </ul>
+
+        <div class="first_menu"><a href="#" class="icon02">新闻管理</a></div>
+        <ul class="sub_menu">
+            <li><a href="{{ url_for('admin.news_list') }}" class="icon031" target="main_frame">新闻列表</a></li>
+            <li><a href="{{ url_for('admin.news_release') }}" class="icon032" target="main_frame">编辑发布</a></li>
+
+        </ul>
+
+        <div class="first_menu"><a href="#" class="icon02">产品中心</a></div>
+        <ul class="sub_menu">
+            <li><a href="{{ url_for('admin.product_list') }}" class="icon031" target="main_frame">产品列表</a></li>
+            <li><a href="{{ url_for('admin.product_release') }}" class="icon032" target="main_frame">发布产品</a></li>
+        </ul>
+
+        <div class="first_menu"><a href="#" class="icon02">应用案例</a></div>
+        <ul class="sub_menu">
+            <li><a href="{{ url_for('admin.case_list') }}" class="icon031" target="main_frame">案例列表</a></li>
+            <li><a href="{{ url_for('admin.case_release') }}" class="icon032" target="main_frame">发布案例</a></li>
+        </ul>
+
+{#        <div class="first_menu"><a href="#" class="icon02">解决方案</a></div>#}
+{#        <ul class="sub_menu">#}
+{#            <li><a href="{{ url_for('admin.solution_list') }}" class="icon031" target="main_frame">解决方案列表</a></li>#}
+{#            <li><a href="{{ url_for('admin.solution_release') }}" class="icon032" target="main_frame">发布解决方案</a></li>#}
+{#        </ul>#}
+{##}
+{#        <div class="first_menu"><a href="#" class="icon02">企业文化</a></div>#}
+{#        <ul class="sub_menu">#}
+{#            <li><a href="{{ url_for('admin.about_list') }}" class="icon032" target="main_frame">管理企业文化</a></li>#}
+{#            <li><a href="{{ url_for('admin.about_release') }}" class="icon032" target="main_frame">发布企业文化</a></li>#}
+{#        </ul>#}
+        <div class="first_menu"><a href="#" class="icon02">分类管理</a></div>
+        <ul class="sub_menu">
+            <li><a href="{{ url_for('admin.category_list') }}" class="icon032" target="main_frame">管理分类</a></li>
+            <li><a href="{{ url_for('admin.category_release') }}" class="icon032" target="main_frame">新增分类</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="main_body" id="main_body">
+    <iframe src="{{ url_for('admin.user_count') }}" frameborder="0" id="main_frame" name="main_frame" frameborder="0"
+            scrolling="auto"></iframe>
+</div>
+
+<script>
+    $(function () {
+        $('.first_menu').click(function () {
+            $(this).addClass('active').siblings('.first_menu').removeClass('active');
+            $(this).next().slideDown().siblings('.sub_menu').slideUp();
+        })
+        var frame_w = $('#main_body').outerWidth();
+        var frame_h = $('#main_body').outerHeight();
+        $('#main_frame').css({'width': frame_w, 'height': frame_h});
+    })
+</script>
+
+</body>
+</html>

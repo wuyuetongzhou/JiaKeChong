@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>甲壳虫智能官网后台管理</title>
+    <link rel="stylesheet" type="text/css" href="../../static/admin/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../static/admin/css/main.css">
+    <link rel="stylesheet" href="../../static/admin/css/jquery.pagination.css">
+    <script type="text/javascript" src="../../static/admin/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="../../static/admin/js/jquery.pagination.min.js"></script>
+</head>
+<body>
+<div class="breadcrub">
+    当前位置：产品中心>产品列表
+    <form class="news_filter_form">
+        <input name="keywords" type="text" placeholder="请输入关键字" class="input_txt">
+        <input type="submit" value="搜 索" class="input_sub">
+    </form>
+</div>
+
+<div class="pannel">
+    <table class="common_table">
+        <tr>
+            <th width="5%">id</th>
+            <th width="30%">产品名称</th>
+            <th width="10%">产品类型</th>
+            <th width="30%">图片</th>
+            <th width="15%">发布时间</th>
+            <th width="10%">管理操作</th>
+        </tr>
+
+        {% for product in data.product_list %}
+            <tr>
+                <td>{{ product.id }}</td>
+                <td class="tleft"><a href="/product_detail?product_id={{ product.id }}" target="_blank">{{ product.name }}</a></td>
+                <td>{{ product.category }}</td>
+                <td><img style="width: 100px; height: auto; margin-top: 0px" src="{{ product.image_url }}"></td>
+                <td>{{ product.create_time }}</td>
+                <td>
+                    <a href="{{ url_for('admin.product_modify') }}?product_id={{ product.id }}" class="edit">编辑</a>
+                    <a id="del_btn" href="" class="edit" onclick="del_func({{ product.id }})">删除</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="box">
+    <div id="pagination" class="page"></div>
+</div>
+
+<script>
+    $(function () {
+        $("#pagination").pagination({
+            currentPage: {{ data.current_page }},
+            totalPage: {{ data.total_page }},
+            callback: function (current) {
+                window.location = '{{ url_for("admin.product_list") }}?p=' + current
+            }
+        });
+    });
+</script>
+<script>
+    function getCookie(name) {
+        var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+        return r ? r[1] : undefined;
+    }
+
+    function del_func(id) {
+        if (confirm("确定删除吗？")) {
+            $.ajax({
+                url: "/admin/product_delete/"+id,
+                type: "POST",
+                 headers: {
+                    "X-CSRFToken": getCookie('csrf_token')
+                },
+                success: function (resp) {
+                    if (resp.errno == "0") {
+                        // 返回上一页，刷新数据
+                        alert('已删除');
+                    } else {
+                        alert(resp.errmsg);
+                    }
+                },
+            });
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>甲壳虫智能官网后台管理</title>
+    <link rel="stylesheet" type="text/css" href="../../static/admin/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../static/admin/css/main.css">
+    <script type="text/javascript" src="../../static/admin/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="../../static/admin/js/jquery.form.min.js"></script>
+    <script src="../../static/admin/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script src="../../static/admin/js/tinymce_setup.js"></script>
+    {#    <script src="../../static/admin/js/news_edit_detail.js"></script>#}
+</head>
+<body>
+<div class="breadcrub">
+    当前位置：产品中心>发布产品信息
+</div>
+<div class="pannel">
+    <form class="product_release" id="myform">
+        <div class="form_group">
+            <label>产品名称：</label>
+            <input name="title" type="text" class="input_txt2" value="">
+        </div>
+        <div class="form_group">
+            <label>产品图片：</label>
+            <input type="file" name="img" class="input_file">
+{#            <img src="" alt="索引图片" class="index_pic">#}
+        </div>
+        <div class="form_group">
+            <label>案例类型：</label>
+            <select name="category_id" id="category_id" style="width:180px;height:28px;">
+                <option>--请选择类型--</option>
+                {% for category in category_data.category_list %}
+                    <option value="{{ category.id }}">{{ category.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form_group">
+            <label>产品介绍：</label>
+            <div class="rich_wrap fl">
+                <input class="input_area" id="rich_content" name="content" value=""/>
+            </div>
+        </div>
+
+        {# 添加隐藏字段新闻id #}
+        <input type="hidden" name="news_id" value="">
+
+        <div class="form_group indent_group line_top">
+            <input type="submit" value="确定" class="confirm">
+            <input type="button" value="取消" class="cancel" onclick="cancel()">
+        </div>
+    </form>
+</div>
+
+<script>
+    function getCookie(name) {
+        var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+        return r ? r[1] : undefined;
+    }
+
+    $(function () {
+        $(".product_release").submit(function (e) {
+            e.preventDefault()
+            $(this).ajaxSubmit({
+                beforeSubmit: function (request) {
+                    // 在提交之前，对参数进行处理
+                    for (var i = 0; i < request.length; i++) {
+                        var item = request[i]
+                        if (item["name"] == "content") {
+                            item["value"] = tinyMCE.activeEditor.getContent()
+                        }
+                    }
+                },
+                url: "/admin/product_release",
+                type: "POST",
+                headers: {
+                    'X-CSRFToken': getCookie('csrf_token')
+                },
+                success: function (resp) {
+                    alert(resp.errmsg);
+                    document.getElementById("myform").reset();
+                }
+            })
+        })
+    })
+
+    // 点击取消，返回上一页
+    function cancel() {
+        document.getElementById("myform").reset();
+    }
+</script>
+</body>
+</html>

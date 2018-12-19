@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>甲壳虫智能官网后台管理</title>
+    <link rel="stylesheet" type="text/css" href="../../static/admin/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="../../static/admin/css/main.css">
+    <link rel="stylesheet" href="../../static/admin/css/jquery.pagination.css">
+    <script type="text/javascript" src="../../static/admin/js/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="../../static/admin/js/jquery.pagination.min.js"></script>
+</head>
+<body>
+<div class="breadcrub">
+    当前位置：企业文化>管理介绍
+    <form class="news_filter_form">
+{#        <input type="button" value="新增介绍" class="input_sub" id="addBtn" style="margin-right: 10px" onclick="">#}
+    </form>
+</div>
+
+<div class="pannel">
+    <table class="common_table">
+        <tr>
+            <th width="5%">id</th>
+            <th width="35%">分类名称</th>
+
+        </tr>
+
+        {% for category in data.category_list %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td class="tleft">{{ category.name }}</td>
+                <td>
+{#                    <a href="{{ url_for('admin.about_modify') }}?about_id={{ about.id }}" class="edit">修改</a>#}
+                    <a id="del_btn" href="" class="edit" onclick="del_func({{ category.id }})">删除</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="box">
+    <div id="pagination" class="page"></div>
+</div>
+<script>
+    function getCookie(name) {
+        var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+        return r ? r[1] : undefined;
+    }
+
+    function del_func(category_id) {
+        if (confirm("确定删除吗？")) {
+            $.ajax({
+                url: "/admin/category_delete/" + category_id,
+                type: "POST",
+                headers: {
+                    "X-CSRFToken": getCookie('csrf_token')
+                },
+                success: function (resp) {
+                    if (resp.errno == "0") {
+                        // 返回上一页，刷新数据
+                        alert('已删除');
+                    } else {
+                        alert(resp.errmsg);
+                    }
+                },
+            });
+        }
+    }
+</script>
+</body>
+</html>
